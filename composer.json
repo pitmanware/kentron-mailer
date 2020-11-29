@@ -1,5 +1,5 @@
 {
-    "name": "pitmanware/kentron-mail",
+    "name": "pitmanware/kentron-phpmailer",
     "description": "PHPMailer extension for Kentron",
     "license": "MIT",
     "minimum-stability": "stable",
