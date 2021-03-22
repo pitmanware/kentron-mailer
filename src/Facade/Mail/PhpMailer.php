@@ -13,11 +13,11 @@ use PHPMailer\PHPMailer\PHPMailer as Mailer;
 final class PhpMailer extends AMail
 {
     /**
-     * Mail service
+     * {@inheritDoc}
      *
      * @var Mailer
      */
-    private static $mailer;
+    protected static $mailer;
 
     public static function send (MailTransportEntity $mailTransportEntity): bool
     {
