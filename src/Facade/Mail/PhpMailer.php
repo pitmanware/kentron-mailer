@@ -34,19 +34,19 @@ final class PhpMailer extends AMail
         // Add recipients
         foreach ($mailTransportEntity->getTargetCollectionEntity()->iterateEntities() as $targetEntity) {
             self::addRecipient($targetEntity);
-            $mailTransportEntity->addError($targetEntity->getErrors());
+            $mailTransportEntity->mergeErrors($targetEntity);
         }
 
         // Add attchments
         foreach ($mailTransportEntity->getAttachmentCollectionEntity()->iterateEntities() as $attachmentEntity) {
             self::attach($attachmentEntity);
-            $mailTransportEntity->addError($attachmentEntity->getErrors());
+            $mailTransportEntity->mergeErrors($attachmentEntity);
         }
 
         // Add embeds
         foreach ($mailTransportEntity->getEmbedCollectionEntity()->iterateEntities() as $embedEntity) {
             self::embed($embedEntity);
-            $mailTransportEntity->addError($embedEntity->getErrors());
+            $mailTransportEntity->mergeErrors($embedEntity);
         }
 
         self::$mailer->setFrom($mailTransportEntity->getFromEmail(), $mailTransportEntity->getFromName());
